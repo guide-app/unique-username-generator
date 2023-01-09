@@ -1,7 +1,7 @@
 {
   "name": "unique-username-generator",
   "version": "1.1.1",
-  "description": "A package to generate a unique username from email or randomly selected nouns and adjectives. User can add a separator between the username, define the maximum length of a username and adds up to six random digits.",
+  "description": "A package to generate a unique username from email or randomly selected nouns and adjectives. User can add a separator between the username and define the maximum length of a username.",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -19,26 +19,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/subhamg/unique-username-generator.git"
+    "url": "https://github.com/guide-app/unique-username-generator.git"
   },
-  "keywords": [
-    "generate",
-    "username",
-    "username-from-email",
-    "email",
-    "generate username",
-    "generate-username-from-email",
-    "generate unique username",
-    "generate-unique-username",
-    "generate-unique-name",
-    "unique-username-generator",
-    "unique-name-generator",
-    "unique",
-    "random",
-    "user",
-    "generator",
-    "node"
-  ],
   "author": "Subham Goyal",
   "license": "MIT",
   "bugs": {
@@ -47,19 +29,19 @@
   "homepage": "https://github.com/subhamg/unique-username-generator#readme",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@types/chai": "^4.3.1",
-    "@types/mocha": "^9.1.1",
+    "@types/chai": "*",
+    "@types/mocha": "*",
     "@types/node": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
-    "chai": "^4.3.6",
+    "chai": "*",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.15.0",
-    "mocha": "^10.0.0",
+    "mocha": "*",
     "nyc": "^15.1.0",
     "semantic-release": "^19.0.5",
     "source-map-support": "^0.5.21",
-    "ts-mocha": "^10.0.0",
+    "ts-mocha": "*",
     "ts-node": "^10.9.1",
     "typescript": "^4.6.4"
   },
