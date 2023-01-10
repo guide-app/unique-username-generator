@@ -1,4 +1,4 @@
-declare type Style = "lowerCase" | "upperCase" | "capital";
+type Style = "lowerCase" | "upperCase" | "capital";
 export interface Config {
     dictionaries: string[][];
     separator?: string;
