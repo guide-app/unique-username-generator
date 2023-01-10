@@ -1,13 +1,6 @@
-import { adjectives, nouns } from "./data";
+import * as words from "./data/words.json";
 
-type Style = "lowerCase" | "upperCase" | "capital";
-
-export interface Config {
-  dictionaries: string[][];
-  separator?: string;
-  length?: number;
-  style?: Style;
-}
+const { predicates, objects} = words;
 
 export function generateFromEmail(email: string): string {
   // Retrieve name from email address
@@ -19,13 +12,11 @@ export function generateFromEmail(email: string): string {
 }
 
 export function generateUsername(separator?: string, length?: number): string {
-  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  const adjective = predicates[Math.floor(Math.random() * predicates.length)];
+  const noun = objects[Math.floor(Math.random() * objects.length)];
   const username = `${adjective}${separator || ""}${noun}`;
   if (length) {
     return username.substring(0, length);
   }
   return username;
 }
-
-export { adjectives, nouns } from "./data";

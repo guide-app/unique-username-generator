@@ -4,7 +4,11 @@ This is a fork of a package to generate a unique username from email or randomly
 
 This fork was created because this library depends on a crypto library that is now deprecated. Since we are not using the random number generator aspect of this library, this fork removes that dependency.
 
-Original NPM Link:
+In addition, the dictionary of friendly words was taken from here:
+
+https://github.com/glitchdotcom/friendly-words
+
+Original NPM Link of forked code:
 
 [![NPM](https://nodei.co/npm/unique-username-generator.png)](https://nodei.co/npm/unique-username-generator/)
 
