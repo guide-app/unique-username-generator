@@ -1,6 +1,6 @@
 import * as words from "./data/words.json";
 
-const { predicates, objects} = words;
+const { objects, predicates } = words;
 
 export function generateFromEmail(email: string): string {
   // Retrieve name from email address
@@ -11,12 +11,19 @@ export function generateFromEmail(email: string): string {
   return name;
 }
 
-export function generateUsername(separator?: string, length?: number): string {
-  const adjective = predicates[Math.floor(Math.random() * predicates.length)];
-  const noun = objects[Math.floor(Math.random() * objects.length)];
-  const username = `${adjective}${separator || ""}${noun}`;
-  if (length) {
-    return username.substring(0, length);
-  }
+export function generateUsername(separator?: string, length = 4): string {
+  const filteredObjects = objects.filter(object => object.length <= length);
+  const filteredPredicates = predicates.filter(
+    predicate => predicate.length <= length,
+  );
+  const noun =
+    filteredObjects[Math.floor(Math.random() * filteredObjects.length)];
+  const adjective1 =
+    filteredPredicates[Math.floor(Math.random() * filteredPredicates.length)];
+  const adjective2 =
+    filteredPredicates[Math.floor(Math.random() * filteredPredicates.length)];
+  const username = `${noun}${separator || ""}${adjective1}${
+    separator || ""
+  }${adjective2}`;
   return username;
 }

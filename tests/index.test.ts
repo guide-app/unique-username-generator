@@ -24,15 +24,15 @@ describe("Username generated from scratch", () => {
     expect(username).to.contain("-");
   });
 
-  it("has a maximum length of 15", () => {
-    const username = generateUsername("", 15);
+  it("could have a maximum length of 12", () => {
+    const username = generateUsername("", 4);
     console.log(`    Trying Output: ${username}`);
-    expect(username).to.have.length.lessThanOrEqual(15);
+    expect(username).to.have.length.lessThanOrEqual(12);
   });
 
-  it("has a maximum length of 15 with separator", () => {
-    const username = generateUsername("-", 15);
+  it("could have a maximum length of 17 with separator", () => {
+    const username = generateUsername("-", 5);
     console.log(`    Trying Output: ${username}`);
-    expect(username).to.have.length.lessThanOrEqual(15);
+    expect(username).to.have.length.lessThanOrEqual(17);
   });
 });
