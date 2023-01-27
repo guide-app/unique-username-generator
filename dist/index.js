@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.nouns = exports.adjectives = exports.generateUsername = exports.generateFromEmail = void 0;
-const data_1 = require("./data");
+exports.generateUsername = exports.generateFromEmail = void 0;
+const words = require("./data/words.json");
+const { objects, predicates } = words;
 function generateFromEmail(email) {
     // Retrieve name from email address
     const nameParts = email.replace(/@.+/, "");
@@ -11,16 +12,13 @@ function generateFromEmail(email) {
     return name;
 }
 exports.generateFromEmail = generateFromEmail;
-function generateUsername(separator, length) {
-    const adjective = data_1.adjectives[Math.floor(Math.random() * data_1.adjectives.length)];
-    const noun = data_1.nouns[Math.floor(Math.random() * data_1.nouns.length)];
-    const username = `${adjective}${separator || ""}${noun}`;
-    if (length) {
-        return username.substring(0, length);
-    }
+function generateUsername(separator, length = 4) {
+    const filteredObjects = objects.filter(object => object.length <= length);
+    const filteredPredicates = predicates.filter(predicate => predicate.length <= length);
+    const noun = filteredObjects[Math.floor(Math.random() * filteredObjects.length)];
+    const adjective1 = filteredPredicates[Math.floor(Math.random() * filteredPredicates.length)];
+    const adjective2 = filteredPredicates[Math.floor(Math.random() * filteredPredicates.length)];
+    const username = `${noun}${separator || ""}${adjective1}${separator || ""}${adjective2}`;
     return username;
 }
 exports.generateUsername = generateUsername;
-var data_2 = require("./data");
-Object.defineProperty(exports, "adjectives", { enumerable: true, get: function () { return data_2.adjectives; } });
-Object.defineProperty(exports, "nouns", { enumerable: true, get: function () { return data_2.nouns; } });
